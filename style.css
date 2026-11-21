@@ -1,0 +1,120 @@
+:root {
+  --bg: #ffffff;
+  --soft: #f5f7fa;
+  --text: #1c2430;
+  --muted: #5d6877;
+  --line: #e3e8ef;
+  --accent: #2557d6;
+  --accent-dark: #1b43a8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.65;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-dark); }
+
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+/* Nav */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+.logo { font-weight: 700; color: var(--text); }
+.nav nav a { color: var(--muted); margin-left: 22px; font-size: .95rem; }
+.nav nav a:hover { color: var(--accent); }
+
+/* Hero */
+.hero {
+  display: flex; align-items: center; gap: 56px;
+  padding-top: 72px; padding-bottom: 72px;
+}
+.avatar {
+  width: 260px; height: 260px; flex-shrink: 0;
+  border-radius: 50%; object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 1px var(--line), 0 12px 32px rgba(28,36,48,.14);
+}
+.eyebrow { color: var(--accent); font-weight: 600; }
+h1 { font-size: 2.8rem; line-height: 1.15; margin: 4px 0 8px; }
+.role { font-size: 1.25rem; color: var(--muted); margin-bottom: 16px; }
+.lead { max-width: 520px; margin-bottom: 26px; }
+
+.buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-block; padding: 10px 22px; border-radius: 8px;
+  border: 1px solid var(--line); color: var(--text); font-weight: 600;
+  transition: all .15s;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
+
+/* Sections */
+.section { padding-top: 56px; padding-bottom: 56px; border-top: 1px solid var(--line); }
+h2 { font-size: 1.8rem; margin-bottom: 22px; }
+h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.section p { margin-bottom: 14px; max-width: 720px; }
+.motto { color: var(--accent); font-weight: 600; font-style: italic; }
+.muted { color: var(--muted); }
+
+/* Projects */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.card {
+  background: var(--soft); border: 1px solid var(--line);
+  border-radius: 12px; padding: 22px;
+  display: flex; flex-direction: column;
+  transition: transform .15s, box-shadow .15s;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(28,36,48,.08); }
+.card p { font-size: .95rem; color: var(--muted); flex-grow: 1; }
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.tags li {
+  font-size: .78rem; padding: 3px 10px; border-radius: 999px;
+  background: #fff; border: 1px solid var(--line); color: var(--text);
+}
+.card-link { margin-top: 12px; font-size: .9rem; font-weight: 600; }
+.more { margin-top: 24px; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; }
+.skills p { color: var(--muted); font-size: .95rem; margin: 0; }
+
+/* Education */
+.edu { margin-bottom: 18px; }
+.certs { padding-left: 20px; color: var(--muted); }
+.certs li { margin-bottom: 6px; }
+
+/* Contact */
+.contact { text-align: center; }
+.contact p { margin-left: auto; margin-right: auto; }
+.social { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 22px; margin-top: 26px; }
+.social a { font-weight: 600; }
+
+footer {
+  border-top: 1px solid var(--line); padding: 24px 0;
+  text-align: center; color: var(--muted); font-size: .9rem;
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  .hero { flex-direction: column; text-align: center; gap: 28px; padding-top: 44px; padding-bottom: 44px; }
+  .avatar { width: 200px; height: 200px; }
+  h1 { font-size: 2.2rem; }
+  .lead { margin-left: auto; margin-right: auto; }
+  .buttons { justify-content: center; }
+  .nav nav a { margin-left: 12px; font-size: .85rem; }
+  .logo { display: none; }
+  .nav-inner { justify-content: center; }
+}
