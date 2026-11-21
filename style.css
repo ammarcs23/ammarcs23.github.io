@@ -30,7 +30,7 @@ svg { width: 1em; height: 1em; fill: currentColor; vertical-align: -0.12em; }
 
 /* Nav */
 .nav {
-  position: sticky; top: 0; z-index: 10;
+  position: sticky; top: 0; z-index: 30;
   background: rgba(255,255,255,.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
@@ -42,6 +42,58 @@ svg { width: 1em; height: 1em; fill: currentColor; vertical-align: -0.12em; }
 .logo span { color: var(--accent); }
 .nav nav a { color: var(--muted); margin-left: 20px; font-size: .92rem; padding: 4px 0; border-bottom: 2px solid transparent; transition: color .15s, border-color .15s; }
 .nav nav a:hover, .nav nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Mobile menu: burger + full-screen overlay */
+.burger {
+  display: none; position: relative; z-index: 30;
+  width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 12px;
+  background: #fff; cursor: pointer;
+  flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+}
+.burger span { display: block; width: 20px; height: 2px; background: var(--text); border-radius: 2px; transition: transform .3s, background .3s; }
+.burger[aria-expanded="true"] span { background: #fff; }
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
+
+.mm {
+  position: fixed; inset: 0; z-index: 20;
+  background: linear-gradient(160deg, #1b43a8 0%, #2557d6 55%, #3b6ff0 100%);
+  color: #fff; display: flex; flex-direction: column; justify-content: space-between;
+  padding: 96px 32px 36px;
+  clip-path: circle(0 at calc(100% - 42px) 38px);
+  visibility: hidden;
+  transition: clip-path .55s cubic-bezier(.7,0,.2,1), visibility 0s .55s;
+}
+.mm.open { clip-path: circle(150% at calc(100% - 42px) 38px); visibility: visible; transition: clip-path .55s cubic-bezier(.7,0,.2,1); }
+.mm-links { display: flex; flex-direction: column; gap: 4px; }
+.mm-links a {
+  display: flex; align-items: baseline; gap: 16px;
+  font-size: 2rem; font-weight: 700; color: #fff; padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,.18);
+  opacity: 0; transform: translateX(-24px);
+  transition: opacity .4s, transform .4s, padding-left .2s;
+}
+.mm-links a i { font-style: normal; font-size: .8rem; font-weight: 600; color: #ffd166; letter-spacing: .08em; }
+.mm-links a:active, .mm-links a:hover { padding-left: 8px; color: #fff; }
+.mm.open .mm-links a { opacity: 1; transform: none; }
+.mm.open .mm-links a:nth-child(1) { transition-delay: .20s; }
+.mm.open .mm-links a:nth-child(2) { transition-delay: .26s; }
+.mm.open .mm-links a:nth-child(3) { transition-delay: .32s; }
+.mm.open .mm-links a:nth-child(4) { transition-delay: .38s; }
+.mm.open .mm-links a:nth-child(5) { transition-delay: .44s; }
+.mm.open .mm-links a:nth-child(6) { transition-delay: .50s; }
+.mm-foot { opacity: 0; transition: opacity .4s .55s; }
+.mm.open .mm-foot { opacity: 1; }
+.mm-foot .social { margin-top: 0; }
+.mm-foot .social a { border-color: rgba(255,255,255,.4); color: #fff; }
+.mm-foot .social a:hover { background: #fff; color: var(--accent); border-color: #fff; }
+.mm-foot p { margin-top: 18px; font-size: .9rem; opacity: .85; }
+@media (min-width: 761px) { .mm { display: none; } }
+body.menu-open { overflow: hidden; }
+body.menu-open .nav { background: transparent; backdrop-filter: none; border-bottom-color: transparent; box-shadow: none; }
+body.menu-open .logo { color: #fff; }
+body.menu-open .logo span { color: #ffd166; }
+body.menu-open .burger { border-color: rgba(255,255,255,.6); background: transparent; }
 
 /* Hero */
 .hero {
@@ -202,10 +254,8 @@ footer {
   h1 { font-size: 2.2rem; }
   .lead { margin-left: auto; margin-right: auto; }
   .buttons, .social { justify-content: center; }
-  .nav-inner { overflow-x: auto; justify-content: flex-start; }
-  .nav nav { display: flex; white-space: nowrap; }
-  .logo { display: none; }
-  .nav nav a { margin: 0 14px 0 0; font-size: .85rem; }
+  .nav nav { display: none; }
+  .burger { display: flex; }
   .achv, .achv:nth-child(even) { grid-template-columns: 1fr; }
   .achv:nth-child(even) .photo { order: 0; }
   .photo img { height: 240px; }

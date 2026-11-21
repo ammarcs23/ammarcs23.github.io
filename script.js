@@ -86,6 +86,22 @@
   onScroll();
   top.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
 
+  // Mobile menu
+  var burger = document.getElementById('burger'), mm = document.getElementById('mm');
+  function setMenu(open) {
+    mm.classList.toggle('open', open);
+    mm.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('menu-open', open);
+  }
+  burger.addEventListener('click', function () { setMenu(!mm.classList.contains('open')); });
+  mm.querySelectorAll('.mm-links a').forEach(function (a) {
+    a.addEventListener('click', function () { setMenu(false); });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  window.addEventListener('resize', function () { if (window.innerWidth > 760) setMenu(false); });
+
   // Photo lightbox
   var lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img');
   document.querySelectorAll('.photo').forEach(function (btn) {
