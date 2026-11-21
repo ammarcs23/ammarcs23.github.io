@@ -285,3 +285,8 @@ footer {
 /* In the blue mobile menu: white circles with brand-coloured icons */
 .mm-foot .social a[aria-label] { background: #fff; border-color: #fff; color: var(--b); }
 .mm-foot .social a[aria-label]:hover { background: #fff; color: var(--b); transform: translateY(-3px); }
+
+/* WhatsApp */
+.social a[aria-label="WhatsApp"] { --b: #25d366; }
+.btn.wa { color: #128c7e; border-color: #bfe9d4; }
+.btn.wa:hover { background: #25d366; border-color: #25d366; color: #fff; }
