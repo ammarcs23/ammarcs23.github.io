@@ -87,6 +87,8 @@ svg { width: 1em; height: 1em; fill: currentColor; vertical-align: -0.12em; }
 .mm-foot .social { margin-top: 0; }
 .mm-foot .social a { border-color: rgba(255,255,255,.4); color: #fff; }
 .mm-foot .social a:hover { background: #fff; color: var(--accent); border-color: #fff; }
+.mm-cv { display: inline-flex; align-items: center; gap: 8px; margin: 18px 0 0; padding: 10px 18px; border-radius: 10px; background: #fff; color: var(--accent); font-weight: 700; }
+.mm-cv:hover { color: var(--accent-dark); }
 .mm-foot p { margin-top: 18px; font-size: .9rem; opacity: .85; }
 @media (min-width: 761px) { .mm { display: none; } }
 body.menu-open { overflow: hidden; }
@@ -122,6 +124,8 @@ h1 { font-size: 2.8rem; line-height: 1.15; margin: 4px 0 8px; }
   border: 1px solid var(--line); color: var(--text); font-weight: 600;
   transition: all .15s;
 }
+.btn svg { margin-right: 4px; }
+.buttons.center { justify-content: center; }
 .btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 .btn.primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
