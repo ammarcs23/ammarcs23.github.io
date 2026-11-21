@@ -270,3 +270,18 @@ footer {
   .reveal { opacity: 1; transform: none; transition: none; }
   .avatar-wrap, .cursor { animation: none; }
 }
+
+/* Social icons: brand colours */
+.social a[aria-label="GitHub"]    { --b: #181717; }
+.social a[aria-label="LinkedIn"]  { --b: #0a66c2; }
+.social a[aria-label="Instagram"] { --b: #e4405f; }
+.social a[aria-label="Facebook"]  { --b: #1877f2; }
+.social a[aria-label="X"]         { --b: #000000; }
+.social a[aria-label="Email"]     { --b: #ea4335; }
+.social a[aria-label] { color: var(--b); border-color: var(--line); }
+.social a[aria-label]:hover { background: var(--b); border-color: var(--b); color: #fff; }
+.social a[aria-label="Instagram"]:hover { background: linear-gradient(45deg, #f09433, #dc2743 55%, #bc1888); border-color: transparent; }
+
+/* In the blue mobile menu: white circles with brand-coloured icons */
+.mm-foot .social a[aria-label] { background: #fff; border-color: #fff; color: var(--b); }
+.mm-foot .social a[aria-label]:hover { background: #fff; color: var(--b); transform: translateY(-3px); }
