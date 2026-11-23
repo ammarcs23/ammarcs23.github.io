@@ -290,3 +290,22 @@ footer {
 .social a[aria-label="WhatsApp"] { --b: #25d366; }
 .btn.wa { color: #128c7e; border-color: #bfe9d4; }
 .btn.wa:hover { background: #25d366; border-color: #25d366; color: #fff; }
+
+/* Tech stack */
+.stack { display: grid; gap: 30px; }
+.stack-group h3 { font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+.stack-group h3::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.techs { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 12px; }
+.tech {
+  --c: var(--accent);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 18px 8px 14px; border-radius: 14px;
+  background: #fff; border: 1px solid var(--line);
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.tech svg { width: 38px; height: 38px; color: var(--c); transition: transform .25s; }
+.tech span { font-size: .85rem; font-weight: 600; text-align: center; line-height: 1.2; }
+.tech:hover { transform: translateY(-5px); border-color: var(--c); box-shadow: 0 10px 22px color-mix(in srgb, var(--c) 22%, transparent); }
+.tech:hover svg { transform: scale(1.15) rotate(-4deg); }
+@media (max-width: 760px) { .techs { grid-template-columns: repeat(3, 1fr); gap: 10px; } .tech svg { width: 32px; height: 32px; } }
+/* end tech stack */
